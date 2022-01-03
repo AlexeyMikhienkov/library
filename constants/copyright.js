@@ -2,6 +2,8 @@ export const bookHeader = "ИНФОРМАЦИЯ О КНИГЕ";
 
 export const readerHeader = "ИНФОРМАЦИЯ О ЧИТАТЕЛЕ";
 
+export const readerWithoutBooksNow = "Читатель не взял ни одной книги";
+
 export const bookData = {
     writer: "Автор:",
     title: "Название:",
@@ -12,9 +14,9 @@ export const bookData = {
 };
 
 export const readerData = {
-    lastname: "Фамилия:",
-    name: "Имя:",
-    patronymic: "Отчество:",
+    lastName: "Фамилия:",
+    firstName: "Имя:",
+    thirdName: "Отчество:",
     age: "Возраст:",
-    //books: "Книги:"
+    books: "Взятые книги:"
 }

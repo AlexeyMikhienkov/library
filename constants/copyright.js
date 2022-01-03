@@ -3,12 +3,12 @@ export const bookHeader = "ИНФОРМАЦИЯ О КНИГЕ";
 export const readerHeader = "ИНФОРМАЦИЯ О ЧИТАТЕЛЕ";
 
 export const bookData = {
-    author: "Автор:",
+    writer: "Автор:",
     title: "Название:",
-    bookId: "Номер книги:",
+    id: "Номер книги:",
     genre: "Жанр:",
-    readerAge: "Рекомендуемый возраст:",
-    copies: "Книг в библиотеке:"
+    ageLimit: "Рекомендуемый возраст:",
+    count: "Книг в библиотеке:"
 };
 
 export const readerData = {

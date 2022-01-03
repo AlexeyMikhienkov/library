@@ -1,7 +1,9 @@
 import styles from '../styles/Home.module.css'
+import Book from "../components/book/book";
+import {books} from "../constants/constants";
 
 export default function Home() {
   return (
-    <div>Hello world!</div>
+    <Book book={books[0]}/>
   )
 }

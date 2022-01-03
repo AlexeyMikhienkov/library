@@ -4,6 +4,7 @@ import {books} from "../constants/constants";
 
 export default function Home() {
   return (
-    <Book book={books[0]}/>
+    //<Book book={books[0]}/>
+      <div>Hello world</div>
   )
 }

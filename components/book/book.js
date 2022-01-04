@@ -1,5 +1,5 @@
-import {bookData, bookHeader} from "../../constants/copyright";
-import {genres} from "../../constants/constants";
+import {bookHeader} from "../../constants/copyright";
+import {bookData, genres} from "../../constants/constants";
 
 export default function Book({book}) {
     const {writer, title, id, genre, ageLimit, count} = book;

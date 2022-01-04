@@ -17,7 +17,31 @@ export function del(endpoint, data = {}, headers = {}) {
         headers: {
             ...headers,
         },
-        data: data
+        data
     }
+
     return axios.delete(API_URL + endpoint, config)
 }
+
+export function getWithParams(endpoint, params = {}, headers = {}) {
+    const config = {
+        headers: {
+            ...headers,
+        },
+        params
+    }
+
+    return axios.get(API_URL + endpoint, config)
+}
+
+export function get(endpoint, data = {}, headers = {}) {
+    const config = {
+        headers: {
+            ...headers,
+        },
+        data
+    }
+
+    return axios.get(API_URL + endpoint, config)
+}
+

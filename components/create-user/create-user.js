@@ -1,5 +1,6 @@
-import {addUserButtonText, addUserHeader, userData} from "../../constants/copyright";
+import {addUserButtonText, addUserHeader} from "../../constants/copyright";
 import {useState} from "react";
+import {userData} from "../../constants/constants";
 
 export default function CreateUser({onCreateQuery}) {
     const [lastName, setLastName] = useState('');

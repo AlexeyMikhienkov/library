@@ -25,3 +25,31 @@ export const userFormFields = {
         text: "Дата рождения"
     }
 };
+
+export const bookData = {
+    writer: "Автор:",
+    title: "Название:",
+    id: "Номер книги:",
+    genre: "Жанр:",
+    ageLimit: "Рекомендуемый возраст:",
+    count: "Книг в библиотеке:"
+};
+
+export const userData = {
+    lastName: "Фамилия:",
+    firstName: "Имя:",
+    thirdName: "Отчество:",
+    age: "Возраст:",
+    books: "Взятые книги:"
+}
+
+export const filterBy = {
+    title: "filterBy",
+    text: "Фильтровать"
+}
+
+export const filterParams = {
+    writer: "По автору",
+    genre: "По жанру"
+}
+

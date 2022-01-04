@@ -1,5 +1,6 @@
-import {userData, userHeader, userWithoutBooksNow} from "../../constants/copyright";
+import {userHeader, userWithoutBooksNow} from "../../constants/copyright";
 import convertBirthdayToAge from "../../utils/convertBirthdayToAge";
+import {userData} from "../../constants/constants";
 
 export default function User({user}) {
     const {firstName, lastName, thirdName, birthday, books} = user;

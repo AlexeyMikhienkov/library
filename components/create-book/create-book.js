@@ -1,6 +1,6 @@
 import {useState} from "react";
-import {addBookButtonText, addBookHeader, bookData} from "../../constants/copyright";
-import {genres} from "../../constants/constants";
+import {addBookButtonText, addBookHeader} from "../../constants/copyright";
+import {genres, bookData} from "../../constants/constants";
 
 export default function CreateBook({onCreateQuery}) {
     const [writer, setWriter] = useState('');

@@ -1,9 +1,12 @@
 import {del} from "../../utils/requests";
 import {useState} from "react";
 import UsersList from "../../components/users-list/users-list";
+import {useRouter} from "next/router";
+import SearchBooks from "../choose-book/books";
 
 const Users = ({users: serverUsers}) => {
     const [users, setUsers] = useState(serverUsers);
+    const router = useRouter();
 
     function onDeleteUser(userId) {
         del(`/user/${userId}`, {
@@ -15,8 +18,12 @@ const Users = ({users: serverUsers}) => {
             })
     }
 
+    function onSelectBooks(userId) {
+        router.push(`/choose-book/${userId}`)
+    }
+
     return (
-        <UsersList users={users} onDeleteUser={onDeleteUser} />
+        <UsersList users={users} onDeleteUser={onDeleteUser} onSelectBooks={onSelectBooks}/>
     )
 }
 

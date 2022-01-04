@@ -1,8 +1,14 @@
 export const bookHeader = "ИНФОРМАЦИЯ О КНИГЕ";
 
-export const readerHeader = "ИНФОРМАЦИЯ О ЧИТАТЕЛЕ";
+export const userHeader = "ИНФОРМАЦИЯ О ЧИТАТЕЛЕ";
 
-export const readerWithoutBooksNow = "Читатель не взял ни одной книги";
+export const userWithoutBooksNow = "Читатель не взял ни одной книги";
+
+export const addBookHeader = "Добавление новой книги";
+export const addUserHeader = "Добавление нового читателя";
+
+export const addBookButtonText = "Добавить книгу";
+export const addUserButtonText = "Добавить читателя";
 
 export const bookData = {
     writer: "Автор:",
@@ -13,7 +19,7 @@ export const bookData = {
     count: "Книг в библиотеке:"
 };
 
-export const readerData = {
+export const userData = {
     lastName: "Фамилия:",
     firstName: "Имя:",
     thirdName: "Отчество:",

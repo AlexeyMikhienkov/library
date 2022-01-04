@@ -1,8 +1,7 @@
-import Reader from "../../components/reader/reader";
-import {readers} from "../../constants/constants";
+import User from "../../components/user/user";
 
-function ReaderPage({user}) {
-    return <Reader reader={user} />
+function UserPage({user}) {
+    return <User user={user} />
 }
 
 export async function getStaticPaths() {
@@ -27,4 +26,4 @@ export async function getStaticProps({params}) {
     }
 }
 
-export default ReaderPage
+export default UserPage

@@ -7,5 +7,21 @@ export const genres = {
     COMICS: "Комиксы"
 }
 
-
-
+export const userFormFields = {
+    lastName: {
+        title: "lastName",
+        text: "Фамилия"
+    },
+    firstName: {
+        title: "firstName",
+        text: "Имя"
+    },
+    thirdName: {
+        title: "thirdName",
+        text: "Отчество"
+    },
+    birthday: {
+        title: "birthday",
+        text: "Дата рождения"
+    }
+};

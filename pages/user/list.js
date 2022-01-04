@@ -1,4 +1,7 @@
 const List = ({users}) => {
+    //TODO: users только в первый раз, далее через get-запрос
+
+
     return (
         <ul>
             {users.map(user => {

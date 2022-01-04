@@ -1,28 +1,28 @@
-import {readerData, readerHeader, readerWithoutBooksNow} from "../../constants/copyright";
+import {userData, userHeader, userWithoutBooksNow} from "../../constants/copyright";
 import convertBirthdayToAge from "../../utils/convertBirthdayToAge";
 
-export default function Reader({reader}) {
-    const {firstName, lastName, thirdName, birthday, books} = reader;
+export default function User({user}) {
+    const {firstName, lastName, thirdName, birthday, books} = user;
 
     return (
-        <div className={"reader"}>
-            <h3>{readerHeader}</h3>
-            <div className={"reader__info"}>
-                <p className={"reader__lastname"}>
-                    {`${readerData.lastName} ${lastName}`}
+        <div className={"user"}>
+            <h3>{userHeader}</h3>
+            <div className={"user__info"}>
+                <p className={"user__lastname"}>
+                    {`${userData.lastName} ${lastName}`}
                 </p>
-                <p className={"reader__firstname"}>
-                    {`${readerData.firstName} ${firstName}`}
+                <p className={"user__firstname"}>
+                    {`${userData.firstName} ${firstName}`}
                 </p>
-                <p className={"reader__thirdname"}>
-                    {`${readerData.thirdName} ${thirdName}`}
+                <p className={"user__thirdname"}>
+                    {`${userData.thirdName} ${thirdName}`}
                 </p>
-                <p className={"reader__age"}>
-                    {`${readerData.age} ${convertBirthdayToAge(birthday)}`}
+                <p className={"user__age"}>
+                    {`${userData.age} ${convertBirthdayToAge(birthday)}`}
                 </p>
-                <div className={"reader__books"}>
+                <div className={"user__books"}>
                     <>
-                        <h3>{readerData.books}</h3>
+                        <h3>{userData.books}</h3>
                         {books.length ?
                             <table>
                                 <tbody>
@@ -38,7 +38,7 @@ export default function Reader({reader}) {
                                 }
                                 </tbody>
                             </table> :
-                            <p>{readerWithoutBooksNow}</p>
+                            <p>{userWithoutBooksNow}</p>
                         }
                     </>
                 </div>

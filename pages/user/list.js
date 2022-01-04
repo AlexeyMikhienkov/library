@@ -1,10 +1,22 @@
-const List = ({users}) => {
+import {del} from "../../utils/requests";
+import {useState} from "react";
+import UsersList from "../../components/users-list/users-list";
+
+const Users = ({users: serverUsers}) => {
+    const [users, setUsers] = useState(serverUsers);
+
+    function onDeleteUser(userId) {
+        del(`/user/${userId}`, {
+            id: userId
+        })
+            .then(res => setUsers(users.filter(user => user.id !== userId)))
+            .catch(({response}) => {
+                console.log("ОШИБКА УДАЛЕНИЯ", response)
+            })
+    }
+
     return (
-        <ul>
-            {users.map(user => {
-                return <li>{`${user.lastName} ${user.firstName}`}</li>
-            })}
-        </ul>
+        <UsersList users={users} onDeleteUser={onDeleteUser} />
     )
 }
 
@@ -19,4 +31,4 @@ export async function getStaticProps() {
     }
 }
 
-export default List
+export default Users

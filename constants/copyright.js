@@ -8,7 +8,7 @@ export const addBookHeader = "Добавление новой книги";
 export const addUserHeader = "Добавление нового читателя";
 
 export const deleteBookText = "Удалить книгу";
-export const deleteUserHeader = "Удаление читателя";
+export const deleteUserText = "Удалить читателя";
 
 export const addBookButtonText = "Добавить книгу";
 export const addUserButtonText = "Добавить читателя";

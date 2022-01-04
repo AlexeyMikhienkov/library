@@ -1,13 +1,22 @@
-import {useEffect, useState} from "react";
+import {del} from "../../utils/requests";
+import BooksList from "../../components/books-list/books-list";
+import {useState} from "react";
 
-const List = ({books}) => {
-    //TODO: books только в первый раз, далее через get-запрос
+const Books = ({books: serverBooks}) => {
+    const [books, setBooks] = useState(serverBooks);
+
+    function onDeleteBook(bookId) {
+        del(`/book/${bookId}`, {
+            id: bookId
+        })
+            .then(res => setBooks(books.filter(book => book.id !== bookId)))
+            .catch(({response}) => {
+                console.log("ОШИБКА УДАЛЕНИЯ", response)
+            })
+    }
+
     return (
-        <ul>
-            {books.map(book => {
-                return <li key={book.id}>{book.title}</li>
-            })}
-        </ul>
+        <BooksList books={books} onDeleteBook={onDeleteBook} />
     )
 }
 
@@ -22,4 +31,4 @@ export async function getStaticProps() {
     }
 }
 
-export default List
+export default Books

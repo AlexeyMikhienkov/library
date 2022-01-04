@@ -1,7 +1,9 @@
 import Book from "../../components/book/book";
 
 function BookPage({book}) {
-   return <Book book={book}/>
+
+
+    return <Book book={book}/>
 }
 
 export async function getStaticPaths() {

@@ -88,11 +88,3 @@ export default function CreateBook({onCreateQuery}) {
         </div>
     )
 }
-
-/*
-                                <input type={"select"} id={title} value={titleToStateConverter(title)}
-                                       onChange={event => {
-                                           titleToSetterConverter(title)(event.target.value)
-                                       }}/><br/>
- */
-

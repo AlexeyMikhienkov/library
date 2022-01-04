@@ -1,5 +1,5 @@
 import CreateUser from "../../components/create-user/create-user";
-import post from "../../utils/requests";
+import {post} from "../../utils/requests";
 
 export default function createUserPage() {
     //TODO: отобразить сообщение не в консоли

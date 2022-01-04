@@ -1,5 +1,5 @@
 import CreateBook from "../../components/create-book/create-book";
-import post from "../../utils/requests";
+import {post} from "../../utils/requests";
 
 export default function createBookPage() {
     //TODO: выводить исключение не в консоль
@@ -24,7 +24,7 @@ export default function createBookPage() {
                     }
                 } else if (response.status === 500) {
                     console.log(response.message)
-                }
+                } else console.log("ИНАЯ ОШИБКА")
             })
     }
 

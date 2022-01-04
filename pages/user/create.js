@@ -3,6 +3,7 @@ import post from "../../utils/requests";
 
 export default function createUserPage() {
     //TODO: отобразить сообщение не в консоли
+    //TODO: дату рождения вводить через react date picker
     function onCreateQuery(lastName, firstName, thirdName, birthday) {
         const data = {
             lastName,

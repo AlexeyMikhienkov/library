@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {addBookButtonText, addBookHeader, bookData} from "../../constants/copyright";
+import {genres} from "../../constants/constants";
 
 export default function CreateBook({onCreateQuery}) {
     const [writer, setWriter] = useState('');
@@ -55,6 +56,22 @@ export default function CreateBook({onCreateQuery}) {
                     if (title === "id")
                         return null
 
+                    if (title === "genre")
+                        return (
+                            <div key={title}>
+                                <label htmlFor={title}>{text}</label><br/>
+                                <select value={titleToStateConverter(title)} onChange={event => {
+                                    titleToSetterConverter(title)(event.target.value)
+                                }}>
+                                    {
+                                        Object.entries(genres).map(([key, value]) => {
+                                            return <option key={key} value={key}>{value}</option>
+                                        })
+                                    }
+                                </select><br/>
+                            </div>
+                        )
+
                     return (
                         <div key={title}>
                             <label htmlFor={title}>{text}</label><br/>
@@ -72,4 +89,10 @@ export default function CreateBook({onCreateQuery}) {
     )
 }
 
+/*
+                                <input type={"select"} id={title} value={titleToStateConverter(title)}
+                                       onChange={event => {
+                                           titleToSetterConverter(title)(event.target.value)
+                                       }}/><br/>
+ */
 

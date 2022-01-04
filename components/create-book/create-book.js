@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {addBookButtonText, addBookHeader, bookData} from "../../constants/copyright";
 
 export default function CreateBook({onCreateQuery}) {
@@ -8,9 +8,9 @@ export default function CreateBook({onCreateQuery}) {
     const [ageLimit, setAgeLimit] = useState('');
     const [count, setCount] = useState('');
 
-    function handleSubmit() {
+    function handleSubmit(event) {
+        event.preventDefault();
         onCreateQuery(writer, title, genre, ageLimit, count);
-        //TODO: обработать добавление книги
     }
 
     function titleToStateConverter(propTitle) {

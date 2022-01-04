@@ -9,7 +9,5 @@ export default function post(endpoint, data = {}, headers = {}) {
         }
     }
 
-    alert(`${API_URL + endpoint} ${data} ${config}`)
-
     return axios.post(API_URL + endpoint, data, config)
 }

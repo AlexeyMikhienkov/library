@@ -15,6 +15,8 @@ export const addBookButtonText = "Добавить книгу";
 export const addUserButtonText = "Добавить читателя";
 
 export const selectBooksHeader = "Подобрать книгу";
+export const showBooks = "Показать книги";
 
 export const search = "Найти";
+export const show = "Показать";
 export const goBack = "Назад";

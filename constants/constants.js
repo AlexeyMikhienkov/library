@@ -7,6 +7,11 @@ export const genres = {
     COMICS: "Комиксы"
 }
 
+export const sortBy = {
+    writer: "BY_WRITER",
+    title: "BY_TITLE"
+}
+
 export const userFormFields = {
     lastName: {
         title: "lastName",
@@ -53,3 +58,12 @@ export const filterParams = {
     genre: "По жанру"
 }
 
+export const orderBy = {
+    title: "orderBy",
+    text: "Упорядочить по"
+}
+
+export const orderParams = {
+    writer: "По фамилии автора",
+    title: "По названию"
+}

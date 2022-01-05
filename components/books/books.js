@@ -1,10 +1,12 @@
-import {deleteBookText, noBooksFound, search, showBooks} from "../../constants/copyright";
+import {deleteBookText, goBack, noBooksFound, search, showBooks} from "../../constants/copyright";
 import {orderBy, orderParams} from "../../constants/constants";
 import {useState} from "react";
 import Link from "next/link";
+import {useRouter} from "next/router";
 
 export default function Books({books, onSearch, onDeleteBook}) {
     const {title, text} = orderBy;
+    const router = useRouter();
 
     const [orderParam, setOrderParam] = useState(Object.keys(orderParams)[0]);
 
@@ -42,6 +44,8 @@ export default function Books({books, onSearch, onDeleteBook}) {
                     </ul>
                 }
             </div>
+
+            <button onClick={() => router.back()}>{goBack}</button>
         </div>
     )
 }

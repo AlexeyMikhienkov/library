@@ -1,6 +1,9 @@
-import {noTakenBooksFound, revert, revertBooksListHeader} from "../../constants/copyright";
+import {goBack, noTakenBooksFound, revert, revertBooksListHeader} from "../../constants/copyright";
+import {useRouter} from "next/router";
 
 export default function RevertBooksList({userTakenBooks, onRevertBook}) {
+    const router = useRouter();
+
     return (
         <div className={"revert-books-list"}>
             <h3 className={"revert-books-list__header"}>{revertBooksListHeader}</h3>
@@ -17,7 +20,7 @@ export default function RevertBooksList({userTakenBooks, onRevertBook}) {
                     <p>{noTakenBooksFound}</p>
                 }
             </ul>
-
+            <button onClick={() => router.back()}>{goBack}</button>
         </div>
     )
 }

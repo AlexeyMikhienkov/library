@@ -1,5 +1,4 @@
 export const bookHeader = "ИНФОРМАЦИЯ О КНИГЕ";
-
 export const userHeader = "ИНФОРМАЦИЯ О ЧИТАТЕЛЕ";
 
 export const userWithoutBooksNow = "Читатель не взял ни одной книги";
@@ -29,3 +28,6 @@ export const search = "Найти";
 export const show = "Показать";
 export const goBack = "Назад";
 export const revert = "Вернуть";
+
+export const usersTitle = "ЧИТАТЕЛИ";
+export const booksTitle = "КНИГИ";

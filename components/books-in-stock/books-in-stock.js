@@ -1,7 +1,8 @@
-import {booksInStockHeader, chooseBookText} from "../../constants/copyright";
+import {booksInStockHeader, chooseBookText, goBack} from "../../constants/copyright";
+import {useRouter} from "next/router";
 
 export default function BooksInStock({booksInStock, onTakeBook}) {
-    console.log(booksInStock)
+    const router = useRouter();
 
     return (
         <div className={"books-in-stock"}>
@@ -16,6 +17,7 @@ export default function BooksInStock({booksInStock, onTakeBook}) {
                         )
                 })}
             </ul>
+            <button onClick={() => router.back()}>{goBack}</button>
         </div>
     )
 }

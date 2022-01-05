@@ -1,7 +1,8 @@
-import Books from "../../components/books/books";
+import BooksList from "../../components/books/booksList";
 import {useState} from "react";
 import {del, getWithParams} from "../../utils/requests";
 import {sortBy} from "../../constants/constants";
+import Wrapper from "../../components/wrapper/wrapper";
 
 export default function Show({books: serverBooks}) {
     const [books, setBooks] = useState(serverBooks);
@@ -39,7 +40,9 @@ export default function Show({books: serverBooks}) {
     }
 
     return (
-        <Books books={books} onSearch={onSearch} onDeleteBook={deleteBook}/>
+        <Wrapper>
+            <BooksList books={books} onSearch={onSearch} onDeleteBook={deleteBook}/>
+        </Wrapper>
     )
 }
 

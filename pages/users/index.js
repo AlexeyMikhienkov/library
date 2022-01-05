@@ -2,6 +2,7 @@ import {del} from "../../utils/requests";
 import {useState} from "react";
 import UsersList from "../../components/users-list/users-list";
 import {useRouter} from "next/router";
+import Wrapper from "../../components/wrapper/wrapper";
 
 export default function Users({users: serverUsers}) {
     const [users, setUsers] = useState(serverUsers);
@@ -30,12 +31,10 @@ export default function Users({users: serverUsers}) {
     }
 
     return (
-        <UsersList users={users}
-                   onDeleteUser={deleteUser}
-                   onSelectBooks={selectBooks}
-                   onTakeBook={takeBook}
-                   onRevertBook={revertBook}
-        />
+        <Wrapper>
+            <UsersList users={users} onDeleteUser={deleteUser} onSelectBooks={selectBooks}
+                       onTakeBook={takeBook} onRevertBook={revertBook}/>
+        </Wrapper>
     )
 }
 

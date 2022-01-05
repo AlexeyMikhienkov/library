@@ -1,9 +1,10 @@
 import CreateBook from "../../components/create-book/create-book";
 import {post} from "../../utils/requests";
+import Wrapper from "../../components/wrapper/wrapper";
 
 export default function createBookPage() {
     //TODO: выводить исключение не в консоль
-    function onCreateQuery(writer, title, genre, ageLimit, count) {
+    function createQuery(writer, title, genre, ageLimit, count) {
         const data = {
             writer,
             title,
@@ -29,6 +30,8 @@ export default function createBookPage() {
     }
 
     return (
-        <CreateBook onCreateQuery={onCreateQuery}/>
+        <Wrapper>
+            <CreateBook onCreateQuery={createQuery}/>
+        </Wrapper>
     )
 }

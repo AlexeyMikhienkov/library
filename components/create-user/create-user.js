@@ -1,6 +1,7 @@
 import {addUserButtonText, addUserHeader} from "../../constants/copyright";
 import {useState} from "react";
 import {userData} from "../../constants/constants";
+import Header from "../header/header";
 
 export default function CreateUser({onCreateQuery}) {
     const [lastName, setLastName] = useState('');
@@ -44,26 +45,28 @@ export default function CreateUser({onCreateQuery}) {
     }
 
     return (
-        <div className={"add-user"}>
-            <h3 className={"add-user__header"}>{addUserHeader}</h3>
-            <form onSubmit={handleSubmit}>
-                {Object.entries(userData).map(([title, text]) => {
-                    if (title === "books")
-                        return null;
+        <>
+            <Header headerTitle={addUserHeader}/>
+            <div className={"add-user"}>
+                <form onSubmit={handleSubmit}>
+                    {Object.entries(userData).map(([title, text]) => {
+                        if (title === "books")
+                            return null;
 
-                    return (
-                        <div key={title}>
-                            <label htmlFor={title}>{text}</label><br/>
-                            <input type={"text"} id={title} value={titleToStateConverter(title)}
-                                   onChange={event => {
-                                       titleToSetterConverter(title)(event.target.value)
-                                   }}/><br/>
-                        </div>
-                    )
-                })}
+                        return (
+                            <div key={title}>
+                                <label htmlFor={title}>{text}</label><br/>
+                                <input type={"text"} id={title} value={titleToStateConverter(title)}
+                                       onChange={event => {
+                                           titleToSetterConverter(title)(event.target.value)
+                                       }}/><br/>
+                            </div>
+                        )
+                    })}
 
-                <button type={"submit"}>{addUserButtonText}</button>
-            </form>
-        </div>
+                    <button type={"submit"}>{addUserButtonText}</button>
+                </form>
+            </div>
+        </>
     )
 }

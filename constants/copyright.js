@@ -31,3 +31,4 @@ export const revert = "Вернуть";
 
 export const usersTitle = "ЧИТАТЕЛИ";
 export const booksTitle = "КНИГИ";
+export const mainPageTitle = "ГЛАВНАЯ";

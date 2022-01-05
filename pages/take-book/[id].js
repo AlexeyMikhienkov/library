@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import BooksInStock from "../../components/books-in-stock/books-in-stock";
 import {useRouter} from "next/router";
-import {getWithParams, post, postWithParams} from "../../utils/requests";
+import {getWithParams, post} from "../../utils/requests";
 
 export default function TakeBook({allBooks}) {
     const [booksInStock, setBooksInStock] = useState([]);

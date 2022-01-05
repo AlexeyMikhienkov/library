@@ -1,10 +1,11 @@
 import CreateUser from "../../components/create-user/create-user";
 import {post} from "../../utils/requests";
+import Wrapper from "../../components/wrapper/wrapper";
 
 export default function createUserPage() {
     //TODO: отобразить сообщение не в консоли
     //TODO: дату рождения вводить через react date picker
-    function onCreateQuery(lastName, firstName, thirdName, birthday) {
+    function createQuery(lastName, firstName, thirdName, birthday) {
         const data = {
             lastName,
             firstName,
@@ -29,6 +30,8 @@ export default function createUserPage() {
     }
 
     return (
-        <CreateUser onCreateQuery={onCreateQuery}/>
+        <Wrapper>
+            <CreateUser onCreateQuery={createQuery}/>
+        </Wrapper>
     )
 }

@@ -1,7 +1,9 @@
-import {goBack, noBooksFound, search, selectBooksHeader} from "../../constants/copyright";
+import {noBooksFound, search, selectBooksHeader} from "../../constants/copyright";
 import {filterBy, filterParams, genres} from "../../constants/constants";
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
+import Header from "../header/header";
+import Wrapper from "../wrapper/wrapper";
 
 export default function SelectBooks({genres: serverGenres, writers: serverWriters, onSearch, books}) {
     const {title, text} = filterBy;
@@ -26,56 +28,56 @@ export default function SelectBooks({genres: serverGenres, writers: serverWriter
     }
 
     return (
-        <div className={"select-books"}>
-            <h3 className={"select-books__header"}>{selectBooksHeader}</h3>
-            <form onSubmit={searchResults}>
-                <label htmlFor={title}>{text}</label><br/>
-                <select value={filterParam} onChange={event => {
-                    setFilterParam(event.target.value)
-                }}>
+        <Wrapper>
+            <Header headerTitle={selectBooksHeader} />
+            <div className={"select-books"}>
+                <form onSubmit={searchResults}>
+                    <label htmlFor={title}>{text}</label><br/>
+                    <select value={filterParam} onChange={event => {
+                        setFilterParam(event.target.value)
+                    }}>
+                        {
+                            Object.entries(filterParams).map(([title, type]) => {
+                                return <option key={title} value={title}>{type}</option>
+                            })
+                        }
+                    </select><br/>
+
                     {
-                        Object.entries(filterParams).map(([title, type]) => {
-                            return <option key={title} value={title}>{type}</option>
-                        })
+                        <>
+                            <select disabled={!filterParam.length}
+                                    value={filterParam === "genre" ? currentGenre : currentWriter}
+                                    onChange={event => {
+                                        filterParam === "genre" ?
+                                            setCurrentGenre(event.target.value) :
+                                            setCurrentWriter(event.target.value)
+                                    }}>
+                                {
+                                    currentServerParams.map(param => {
+                                        return <option key={param}
+                                                       value={param}>
+                                            {filterParam === "genre" ? genres[param] : param}</option>
+                                    })
+                                }
+                            </select><br/>
+                        </>
                     }
-                </select><br/>
 
-                {
-                    <>
-                        <select disabled={!filterParam.length}
-                                value={filterParam === "genre" ? currentGenre : currentWriter}
-                                onChange={event => {
-                                    filterParam === "genre" ?
-                                        setCurrentGenre(event.target.value) :
-                                        setCurrentWriter(event.target.value)
-                                }}>
-                            {
-                                currentServerParams.map(param => {
-                                    return <option key={param}
-                                                   value={param}>
-                                        {filterParam === "genre" ? genres[param] : param}</option>
-                                })
-                            }
-                        </select><br/>
-                    </>
-                }
+                    <button type={"submit"}>{search}</button>
+                </form>
 
-                <button type={"submit"}>{search}</button>
-            </form>
-
-            <button className={"select-books__back"} onClick={() => router.back()}>{goBack}</button>
-
-            <div className={"select-books__result"}>
-                {books.length ?
-                    books.map(book => {
-                        return (
-                            <div key={book.id}>
-                                <p>{book.title}</p>
-                            </div>
-                        )
-                    }) :
-                    <p>{noBooksFound}</p>}
+                <div className={"select-books__result"}>
+                    {books.length ?
+                        books.map(book => {
+                            return (
+                                <div key={book.id}>
+                                    <p>{book.title}</p>
+                                </div>
+                            )
+                        }) :
+                        <p>{noBooksFound}</p>}
+                </div>
             </div>
-        </div>
+        </Wrapper>
     )
 }

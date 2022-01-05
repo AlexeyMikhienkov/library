@@ -1,7 +1,7 @@
-import {deleteUserText, selectBooksHeader} from "../../constants/copyright";
+import {deleteUserText, revertBookText, selectBooksHeader, takeBookText} from "../../constants/copyright";
 import Link from "next/link"
 
-export default function UsersList({users, onDeleteUser, onSelectBooks}) {
+export default function UsersList({users, onDeleteUser, onSelectBooks, onTakeBook, onRevertBook}) {
     return (
         <ul>
             {users.map(user => {
@@ -10,6 +10,8 @@ export default function UsersList({users, onDeleteUser, onSelectBooks}) {
                         <li><Link href={`/user/${user.id}`}><a>{user.lastName + user.firstName}</a></Link></li>
                         <button onClick={() => onSelectBooks(user.id)}>{selectBooksHeader}</button>
                         <button onClick={() => onDeleteUser(user.id)}>{deleteUserText}</button>
+                        <button onClick={() => onTakeBook(user.id)}>{takeBookText}</button>
+                        <button onClick={() => onRevertBook(user.id)}>{revertBookText}</button>
                     </div>
                 )
             })}

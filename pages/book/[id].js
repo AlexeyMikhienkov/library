@@ -1,8 +1,6 @@
 import Book from "../../components/book/book";
 
 function BookPage({book}) {
-
-
     return <Book book={book}/>
 }
 

@@ -8,6 +8,7 @@ export const genres = {
 }
 
 export const sortBy = {
+    nothing: "NONE",
     writer: "BY_WRITER",
     title: "BY_TITLE"
 }
@@ -64,6 +65,6 @@ export const orderBy = {
 }
 
 export const orderParams = {
-    writer: "По фамилии автора",
-    title: "По названию"
+    title: "По названию",
+    writer: "По фамилии автора"
 }

@@ -1,12 +1,16 @@
-import ShowBooks from "../../components/show-books/show-books";
+import Books from "../../components/books/books";
 import {useState} from "react";
 import {getWithParams} from "../../utils/requests";
 import {sortBy} from "../../constants/constants";
 
-export default function Show() {
-    const [books, setBooks] = useState([]);
+export default function Show({books: serverBooks}) {
+    const [books, setBooks] = useState(serverBooks);
 
-    async function onSearch(sortParam) {
+    function deleteBook() {
+        console.log("Удалить книгу!")
+    }
+
+    function onSearch(sortParam) {
         const params = {
             sortBy: sortBy[sortParam]
         }
@@ -28,6 +32,17 @@ export default function Show() {
     }
 
     return (
-        <ShowBooks books={books} onSearch={onSearch} />
+        <Books books={books} onSearch={onSearch} onDeleteBook={deleteBook} />
     )
+}
+
+export async function getStaticProps() {
+    const res = await fetch("http://localhost:8080/book/list");
+    const books = await res.json();
+
+    return {
+        props: {
+            books
+        }
+    }
 }

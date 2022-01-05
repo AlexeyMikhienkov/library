@@ -7,7 +7,7 @@ const Users = ({users: serverUsers}) => {
     const [users, setUsers] = useState(serverUsers);
     const router = useRouter();
 
-    function onDeleteUser(userId) {
+    function deleteUser(userId) {
         del(`/user/${userId}`, {
             id: userId
         })
@@ -17,12 +17,20 @@ const Users = ({users: serverUsers}) => {
             })
     }
 
-    function onSelectBooks(userId) {
+    function selectBooks(userId) {
         router.push(`/choose-book/${userId}`)
     }
 
+    function takeBook(userId) {
+        router.push(`/take-book/${userId}`)
+    }
+
+    function revertBook(userId) {
+        router.push(`/revert-book/${userId}`)
+    }
+
     return (
-        <UsersList users={users} onDeleteUser={onDeleteUser} onSelectBooks={onSelectBooks}/>
+        <UsersList users={users} onDeleteUser={deleteUser} onSelectBooks={selectBooks} onTakeBook={takeBook} onRevertBook={revertBook}/>
     )
 }
 

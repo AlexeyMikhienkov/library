@@ -1,8 +1,9 @@
-import {noBooksFound, search, showBooks} from "../../constants/copyright";
+import {deleteBookText, noBooksFound, search, showBooks} from "../../constants/copyright";
 import {orderBy, orderParams} from "../../constants/constants";
 import {useState} from "react";
+import Link from "next/link";
 
-export default function ShowBooks({books, onSearch}) {
+export default function Books({books, onSearch, onDeleteBook}) {
     const {title, text} = orderBy;
 
     const [orderParam, setOrderParam] = useState(Object.keys(orderParams)[0]);
@@ -13,8 +14,8 @@ export default function ShowBooks({books, onSearch}) {
     }
 
     return (
-        <div className={"show-books"}>
-            <h3 className={"show-books__header"}>{showBooks}</h3>
+        <div className={"books"}>
+            <h3 className={"books__header"}>{showBooks}</h3>
             <form onSubmit={handleSubmit}>
                 <label htmlFor={title}>{text}</label>
                 <select value={orderParam} onChange={event => setOrderParam(event.target.value)}>
@@ -27,16 +28,19 @@ export default function ShowBooks({books, onSearch}) {
                 <button type={"submit"}>{search}</button>
             </form>
 
-            <div className={"show-books__result"}>
-                {books.length ?
-                    books.map(book => {
-                        return (
-                            <div key={book.id}>
-                                <p>{book.title + book.writer}</p>
-                            </div>
-                        )
-                    }) :
-                    <p>{noBooksFound}</p>}
+            <div className={"books__result"}>
+                {
+                    <ul>
+                        {books.map(book => {
+                            return (
+                                <div key={book.id}>
+                                    <li><Link href={`/book/${book.id}`}><a>{book.title}</a></Link></li>
+                                    <button onClick={() => onDeleteBook(book.id)}>{deleteBookText}</button>
+                                </div>
+                            )
+                        })}
+                    </ul>
+                }
             </div>
         </div>
     )

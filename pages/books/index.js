@@ -1,13 +1,20 @@
 import Books from "../../components/books/books";
 import {useState} from "react";
-import {getWithParams} from "../../utils/requests";
+import {del, getWithParams} from "../../utils/requests";
 import {sortBy} from "../../constants/constants";
 
 export default function Show({books: serverBooks}) {
     const [books, setBooks] = useState(serverBooks);
 
-    function deleteBook() {
-        console.log("Удалить книгу!")
+    function deleteBook(bookId) {
+        del(`/book/${bookId}`, {
+            id: bookId
+        })
+            .then(res => setBooks(books.filter(book => book.id !== bookId)))
+            .catch(({response}) => {
+                console.log("ОШИБКА УДАЛЕНИЯ", response)
+            })
+
     }
 
     function onSearch(sortParam) {
@@ -32,7 +39,7 @@ export default function Show({books: serverBooks}) {
     }
 
     return (
-        <Books books={books} onSearch={onSearch} onDeleteBook={deleteBook} />
+        <Books books={books} onSearch={onSearch} onDeleteBook={deleteBook}/>
     )
 }
 

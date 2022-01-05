@@ -3,7 +3,7 @@ import {useState} from "react";
 import UsersList from "../../components/users-list/users-list";
 import {useRouter} from "next/router";
 
-const Users = ({users: serverUsers}) => {
+export default function Users({users: serverUsers}) {
     const [users, setUsers] = useState(serverUsers);
     const router = useRouter();
 
@@ -30,7 +30,12 @@ const Users = ({users: serverUsers}) => {
     }
 
     return (
-        <UsersList users={users} onDeleteUser={deleteUser} onSelectBooks={selectBooks} onTakeBook={takeBook} onRevertBook={revertBook}/>
+        <UsersList users={users}
+                   onDeleteUser={deleteUser}
+                   onSelectBooks={selectBooks}
+                   onTakeBook={takeBook}
+                   onRevertBook={revertBook}
+        />
     )
 }
 
@@ -44,5 +49,3 @@ export async function getStaticProps() {
         }
     }
 }
-
-export default Users

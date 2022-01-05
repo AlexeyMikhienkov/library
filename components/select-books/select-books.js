@@ -63,9 +63,7 @@ export default function SelectBooks({genres: serverGenres, writers: serverWriter
                 <button type={"submit"}>{search}</button>
             </form>
 
-            <button className={"select-books__back"} onClick={() => {
-                router.push('/user/list')
-            }}>{goBack}</button>
+            <button className={"select-books__back"} onClick={() => router.back()}>{goBack}</button>
 
             <div className={"select-books__result"}>
                 {books.length ?

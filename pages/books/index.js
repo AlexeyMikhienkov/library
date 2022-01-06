@@ -1,6 +1,6 @@
 import BooksList from "../../components/books/booksList";
 import {useState} from "react";
-import {del, getWithParams} from "../../utils/requests";
+import {del, get, getWithParams} from "../../utils/requests";
 import {sortBy} from "../../constants/constants";
 import Wrapper from "../../components/wrapper/wrapper";
 
@@ -47,8 +47,8 @@ export default function Show({books: serverBooks}) {
 }
 
 export async function getStaticProps() {
-    const res = await fetch("http://localhost:8080/book/list");
-    const books = await res.json();
+    const res = await get('/book/list');
+    const books = await res.data;
 
     return {
         props: {

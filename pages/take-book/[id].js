@@ -1,18 +1,19 @@
 import {useEffect, useState} from "react";
 import BooksInStock from "../../components/books-in-stock/books-in-stock";
 import {useRouter} from "next/router";
-import {getWithParams, post} from "../../utils/requests";
+import {getWithParams, postWithParams, get} from "../../utils/requests";
 
 export default function TakeBook({allBooks}) {
     const [booksInStock, setBooksInStock] = useState([]);
+    const [books, setBooks] = useState(allBooks);
 
     //TODO: отобразить результат не в консоли
     const router = useRouter();
 
     useEffect(() => {
-        const inStock = allBooks.filter(book => book.count > 0)
+        const inStock = books.filter(book => book.count > 0)
         setBooksInStock(inStock);
-    }, allBooks)
+    }, [books])
 
     function takeBook(bookId) {
         const userId = Number(router.query.id);
@@ -22,8 +23,13 @@ export default function TakeBook({allBooks}) {
             bookId
         }
 
-        post('/user/book-up', params)
-            .then(res => console.log(res))
+        postWithParams('/user/book-up', params)
+            .then(async () => {
+                const response = await getWithParams('/search/books', {sortBy: "NONE"})
+                const data = response.data;
+
+                setBooks(data);
+            })
             .catch(({response}) => {
                 console.log(response)
                 if (response.status === 400) {
@@ -44,8 +50,8 @@ export default function TakeBook({allBooks}) {
 }
 
 export async function getStaticPaths() {
-    const res = await fetch("http://localhost:8080/user/list");
-    const users = await res.json();
+    const res = await get("/user/list");
+    const users = await res.data;
 
     const paths = users.map((user) => ({
         params: {id: user.id.toString()},

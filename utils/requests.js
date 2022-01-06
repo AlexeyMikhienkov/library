@@ -12,6 +12,17 @@ export function post(endpoint, data = {}, headers = {}) {
     return axios.post(API_URL + endpoint, data, config)
 }
 
+export function postWithParams(endpoint, params = {}, headers = {}) {
+    const config = {
+        headers: {
+            ...headers
+        },
+        params
+    }
+
+    return axios.post(API_URL + endpoint, null, config);
+}
+
 export function del(endpoint, data = {}, headers = {}) {
     const config = {
         headers: {

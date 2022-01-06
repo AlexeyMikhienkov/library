@@ -14,8 +14,8 @@ export default function BooksInStock({booksInStock, onTakeBook}) {
                     {booksInStock.map(book => {
                         return (
                             <div key={book.id}>
-                                <li className={"books-in-stock__item"}>{book.title}</li>
-                                <button onClick={() => onTakeBook(book.id)}>{chooseBookText}</button>
+                                <li className={"books-in-stock__item"}>{`${book.title}, количество: ${book.count}`}</li>
+                                <button disabled={book.count === 0} onClick={() => onTakeBook(book.id)}>{chooseBookText}</button>
                             </div>
                         )
                     })}

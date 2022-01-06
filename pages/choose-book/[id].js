@@ -1,6 +1,6 @@
 import SelectBooks from "../../components/select-books/select-books";
 import {useRouter} from "next/router";
-import {getWithParams} from "../../utils/requests";
+import {getWithParams, get} from "../../utils/requests";
 import {useState} from "react";
 
 export default function SearchBooks({genres, writers}) {
@@ -43,8 +43,8 @@ export default function SearchBooks({genres, writers}) {
 }
 
 export async function getStaticPaths() {
-    const res = await fetch("http://localhost:8080/user/list");
-    const users = await res.json();
+    const res = await get("/user/list");
+    const users = res.data;
 
     const paths = users.map((user) => ({
         params: {id: user.id.toString()},
@@ -54,11 +54,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({params}) {
-    const res = await fetch("http://localhost:8080/search/genres");
-    const genres = await res.json();
+    const res = await get("/search/genres");
+    const genres = res.data;
 
-    const res2 = await fetch("http://localhost:8080/search/writers");
-    const writers = await res2.json();
+    const res2 = await get("/search/writers");
+    const writers = res2.data;
 
     return {
         props: {

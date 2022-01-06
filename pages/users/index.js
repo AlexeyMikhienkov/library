@@ -1,4 +1,4 @@
-import {del} from "../../utils/requests";
+import {del, get} from "../../utils/requests";
 import {useState} from "react";
 import UsersList from "../../components/users-list/users-list";
 import {useRouter} from "next/router";
@@ -39,8 +39,8 @@ export default function Users({users: serverUsers}) {
 }
 
 export async function getStaticProps() {
-    const res = await fetch("http://localhost:8080/user/list");
-    const users = await res.json();
+    const res = await get("/user/list");
+    const users = res.data;
 
     return {
         props: {

@@ -13,41 +13,47 @@ export const sortBy = {
     title: "BY_TITLE"
 }
 
-export const userFormFields = {
-    lastName: {
+export const userFormFields = [
+    {
         title: "lastName",
         text: "Фамилия"
     },
-    firstName: {
+    {
         title: "firstName",
         text: "Имя"
     },
-    thirdName: {
+    {
         title: "thirdName",
         text: "Отчество"
     },
-    birthday: {
+    {
         title: "birthday",
         text: "Дата рождения"
     }
-};
+]
 
-export const bookData = {
-    writer: "Автор:",
-    title: "Название:",
-    id: "Номер книги:",
-    genre: "Жанр:",
-    ageLimit: "Рекомендуемый возраст:",
-    count: "Книг в библиотеке:"
-};
-
-export const userData = {
-    lastName: "Фамилия:",
-    firstName: "Имя:",
-    thirdName: "Отчество:",
-    age: "Возраст:",
-    books: "Взятые книги:"
-}
+export const bookFormFields = [
+    {
+        title: "writer",
+        text: "Автор (ФИО)"
+    },
+    {
+        title: "title",
+        text: "Название"
+    },
+    {
+        title: "genre",
+        text: "Жанр"
+    },
+    {
+        title: "ageLimit",
+        text: "Рекомендуемый возраст"
+    },
+    {
+        title: "count",
+        text: "Число экземпляров в библиотеке"
+    }
+]
 
 export const filterBy = {
     title: "filterBy",

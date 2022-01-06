@@ -31,7 +31,7 @@ export default function createBookPage() {
 
     return (
         <Wrapper>
-            <CreateBook onCreateBook={createBook}/>
+            <CreateBook onCreateBook={createBook} className={"wrapper__create-book"}/>
         </Wrapper>
     )
 }

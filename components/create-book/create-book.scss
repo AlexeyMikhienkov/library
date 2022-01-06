@@ -1,0 +1,44 @@
+$back-color: #b2d4f7;
+$text-color: #000000;
+
+.create-book {
+  background-color: $back-color;
+
+  padding-left: 20px;
+
+  border: 2px solid #4b87c8;
+
+  font-family: Arial, serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: $text-color;
+
+  &__text {
+    margin-top: 0;
+    padding-top: 30px;
+  }
+
+  .form {
+
+
+    &__input {
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+
+    &__select {
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+
+    &__button {
+      margin-bottom: 20px;
+
+      border: 2px solid #4b87c8;
+      background-color: #d6dea4;
+
+      font-size: 16px;
+    }
+
+  }
+}

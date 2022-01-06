@@ -6,9 +6,11 @@ export default function MainPage({className}) {
         <div className={`${className} main-page`}>
             {
                 mainPageTitles.map(obj => {
+                    const {title, path} = obj;
+
                     return (
-                        <div className={"main-page__link-container"}>
-                            <Link href={obj.path}><a className={"main-page__link"}>{obj.title}</a></Link>
+                        <div key={title} className={"main-page__link-container"}>
+                            <Link href={path}><a className={"main-page__link"}>{title}</a></Link>
                         </div>
                     )
                 })

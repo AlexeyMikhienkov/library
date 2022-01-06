@@ -1,19 +1,17 @@
-export const bookHeader = "ИНФОРМАЦИЯ О КНИГЕ";
-export const userHeader = "ИНФОРМАЦИЯ О ЧИТАТЕЛЕ";
-
-export const userWithoutBooksNow = "Читатель не взял ни одной книги";
 export const noBooksFound = "По вашему запросу не найдено ни одной книги";
 export const noTakenBooksFound = "У читателя нет несданных книг";
 export const noBooksInLibrary = "В библиотеке сейчас нет книг"
 
-export const addBookHeader = "Добавление новой книги";
-export const addUserHeader = "Добавление нового читателя";
+export const addBookHeader = "Новая книга";
+export const addUserHeader = "Новый читатель";
 
 export const deleteBookText = "Удалить книгу";
 export const deleteUserText = "Удалить читателя";
 
 export const addBookButtonText = "Добавить книгу";
 export const addUserButtonText = "Добавить читателя";
+
+export const typeData = "Заполните поля для ввода";
 
 export const takeBookText = "Выдать книгу";
 export const revertBookText = "Вернуть книгу";

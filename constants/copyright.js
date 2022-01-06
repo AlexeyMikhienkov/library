@@ -26,6 +26,7 @@ export const showBooks = "Показать книги";
 
 export const search = "Найти";
 export const goBack = "Назад";
+export const goHome = "На главную";
 export const revert = "Вернуть";
 
 export const usersTitle = "ЧИТАТЕЛИ";

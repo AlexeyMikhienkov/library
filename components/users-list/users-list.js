@@ -25,7 +25,7 @@ export default function UsersList({users, onDeleteUser, onSelectBooks, onTakeBoo
                                         <Link href={`/user/${user.id}`}>
                                             <a className={"user__link"}>
                                                 <p className={"user__data"}>
-                                                    {`${user.lastName} ${user.firstName} ${user.thirdName},`}
+                                                    {`${user.lastName} ${user.firstName} ${user.thirdName}`}
                                                 </p>
                                                 <p className={"user__data"}>
                                                     {`${user.birthday}`}

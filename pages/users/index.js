@@ -33,7 +33,7 @@ export default function Users({users: serverUsers}) {
     return (
         <Wrapper>
             <UsersList users={users} onDeleteUser={deleteUser} onSelectBooks={selectBooks}
-                       onTakeBook={takeBook} onRevertBook={revertBook}/>
+                       onTakeBook={takeBook} onRevertBook={revertBook} className={"wrapper__users-list"}/>
         </Wrapper>
     )
 }

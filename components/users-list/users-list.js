@@ -9,22 +9,38 @@ import Link from "next/link"
 import {useRouter} from "next/router";
 import Header from "../header/header";
 
-export default function UsersList({users, onDeleteUser, onSelectBooks, onTakeBook, onRevertBook}) {
+export default function UsersList({users, onDeleteUser, onSelectBooks, onTakeBook, onRevertBook, className}) {
     const router = useRouter();
 
     return (
         <>
             <Header headerTitle={usersTitle}/>
-            <div>
-                <ul>
+            <div className={`${className} users-list`}>
+                <ul className={"users-list__users"}>
                     {users.map(user => {
                         return (
-                            <div key={user.id}>
-                                <li><Link href={`/user/${user.id}`}><a>{user.lastName + user.firstName}</a></Link></li>
-                                <button onClick={() => onSelectBooks(user.id)}>{selectBooksHeader}</button>
-                                <button onClick={() => onDeleteUser(user.id)}>{deleteUserText}</button>
-                                <button onClick={() => onTakeBook(user.id)}>{takeBookText}</button>
-                                <button onClick={() => onRevertBook(user.id)}>{revertBookText}</button>
+                            <div className={"users-list__user user"} key={user.id}>
+                                <li className={"user__item"}>
+                                    <div className={"user__info"}>
+                                        <Link href={`/user/${user.id}`}>
+                                            <a className={"user__link"}>
+                                                <p className={"user__data"}>
+                                                    {`${user.lastName} ${user.firstName} ${user.thirdName},`}
+                                                </p>
+                                                <p className={"user__data"}>
+                                                    {`${user.birthday}`}
+                                                </p>
+                                            </a>
+                                        </Link>
+                                        <button className={"user__button user__button_delete"}
+                                                onClick={() => onDeleteUser(user.id)}>{deleteUserText}</button>
+                                    </div>
+                                    <div className={"user__actions"}>
+                                        <button className={"user__button user__button_select"} onClick={() => onSelectBooks(user.id)}>{selectBooksHeader}</button>
+                                        <button className={"user__button user__button_select"} onClick={() => onTakeBook(user.id)}>{takeBookText}</button>
+                                        <button className={"user__button user__button_select"} onClick={() => onRevertBook(user.id)}>{revertBookText}</button>
+                                    </div>
+                                </li>
                             </div>
                         )
                     })}

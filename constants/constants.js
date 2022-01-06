@@ -68,3 +68,22 @@ export const orderParams = {
     title: "По названию",
     writer: "По фамилии автора"
 }
+
+export const mainPageTitles = [
+    {
+        title: "ЧИТАТЕЛИ",
+        path: "/users"
+    },
+    {
+        title: "КНИГИ",
+        path: "/books"
+    },
+    {
+        title: "Добавить читателя",
+        path: "/user/create"
+    },
+    {
+        title: "Добавить книгу",
+        path: "/book/create"
+    },
+]

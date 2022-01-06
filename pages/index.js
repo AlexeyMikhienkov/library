@@ -1,6 +1,4 @@
-import styles from '../styles/Home.module.css'
-import Link from "next/link"
-import {booksTitle, mainPageTitle, usersTitle} from "../constants/copyright";
+import {mainPageTitle} from "../constants/copyright";
 import Header from "../components/header/header";
 import Wrapper from "../components/wrapper/wrapper";
 import MainPage from "../components/main-page/main-page";

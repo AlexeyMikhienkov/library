@@ -5,7 +5,6 @@ import {
     takeBookText,
     usersTitle
 } from "../../constants/copyright";
-import Link from "next/link"
 import {useRouter} from "next/router";
 import Header from "../header/header";
 
@@ -22,16 +21,9 @@ export default function UsersList({users, onDeleteUser, onSelectBooks, onTakeBoo
                             <div className={"users-list__user user"} key={user.id}>
                                 <li className={"user__item"}>
                                     <div className={"user__info"}>
-                                        <Link href={`/user/${user.id}`}>
-                                            <a className={"user__link"}>
-                                                <p className={"user__data"}>
-                                                    {`${user.lastName} ${user.firstName} ${user.thirdName}`}
-                                                </p>
-                                                <p className={"user__data"}>
-                                                    {`${user.birthday}`}
-                                                </p>
-                                            </a>
-                                        </Link>
+                                        <p className={"user__data"}>
+                                            {`${user.lastName} ${user.firstName} ${user.thirdName}, ${user.birthday}`}
+                                        </p>
                                         <button className={"user__button user__button_delete"}
                                                 onClick={() => onDeleteUser(user.id)}>{deleteUserText}</button>
                                     </div>

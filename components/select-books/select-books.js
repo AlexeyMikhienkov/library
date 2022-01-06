@@ -3,7 +3,6 @@ import {filterBy, filterParams, genres} from "../../constants/constants";
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import Header from "../header/header";
-import Book from "../book/book";
 import BooksTable from "../books-table/books-table";
 
 export default function SelectBooks({genres: serverGenres, writers: serverWriters, onSearch, books, className}) {

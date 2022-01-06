@@ -1,0 +1,29 @@
+$table-back-color: #b2d4f7;
+$table-back-color-even: #6aa5e5;
+
+.table {
+  width: 100%;
+
+  border: 2px solid #4b87c8;
+  border-spacing: 0;
+
+  &__row {
+    background-color: $table-back-color;
+
+    &_even {
+      background-color: $table-back-color-even;
+    }
+  }
+
+  &__cell {
+    text-align: center;
+    vertical-align: center;
+  }
+
+  &__delete-button {
+    border: 2px solid #4b87c8;
+    margin-right: 20px;
+
+    background-color: #e05858;
+  }
+}

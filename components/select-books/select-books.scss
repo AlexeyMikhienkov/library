@@ -1,0 +1,37 @@
+.select-books {
+  font-family: Arial, serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+
+  &__form {
+    height: 70px;
+  }
+
+  &__no-books {
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    background-color: #b2d4f7;
+
+    &__select {
+      height: 50%;
+    }
+
+    &__button {
+      border: 2px solid #4b87c8;
+      background-color: #d6dea4;
+
+      font-size: 16px;
+    }
+  }
+
+}

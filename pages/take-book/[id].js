@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import BooksInStock from "../../components/books-in-stock/books-in-stock";
 import {useRouter} from "next/router";
 import {getWithParams, postWithParams, get} from "../../utils/requests";
+import Wrapper from "../../components/wrapper/wrapper";
 
 export default function TakeBook({allBooks}) {
     const [booksInStock, setBooksInStock] = useState([]);
@@ -45,7 +46,9 @@ export default function TakeBook({allBooks}) {
     }
 
     return (
-        <BooksInStock booksInStock={booksInStock} onTakeBook={takeBook}/>
+        <Wrapper>
+            <BooksInStock booksInStock={booksInStock} onTakeBook={takeBook}/>
+        </Wrapper>
     )
 }
 

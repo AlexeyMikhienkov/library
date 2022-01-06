@@ -3,7 +3,7 @@ import {useState} from "react";
 import {userData} from "../../constants/constants";
 import Header from "../header/header";
 
-export default function CreateUser({onCreateQuery}) {
+export default function CreateUser({onCreateUser}) {
     const [lastName, setLastName] = useState('');
     const [firstName, setFirstName] = useState('');
     const [thirdName, setThirdName] = useState('');
@@ -11,7 +11,7 @@ export default function CreateUser({onCreateQuery}) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        onCreateQuery(lastName, firstName, thirdName, birthday);
+        onCreateUser(lastName, firstName, thirdName, birthday);
     }
 
     function titleToStateConverter(propTitle) {

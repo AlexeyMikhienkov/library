@@ -36,9 +36,15 @@ export default function UsersList({users, onDeleteUser, onSelectBooks, onTakeBoo
                                                 onClick={() => onDeleteUser(user.id)}>{deleteUserText}</button>
                                     </div>
                                     <div className={"user__actions"}>
-                                        <button className={"user__button user__button_select"} onClick={() => onSelectBooks(user.id)}>{selectBooksHeader}</button>
-                                        <button className={"user__button user__button_select"} onClick={() => onTakeBook(user.id)}>{takeBookText}</button>
-                                        <button className={"user__button user__button_select"} onClick={() => onRevertBook(user.id)}>{revertBookText}</button>
+                                        <button className={"user__button user__button_select"}
+                                                onClick={() => onSelectBooks(user.id)}>{selectBooksHeader}
+                                        </button>
+                                        <button className={"user__button user__button_select"}
+                                                onClick={() => onTakeBook(user.id)}>{takeBookText}
+                                        </button>
+                                        <button className={"user__button user__button_select"}
+                                                onClick={() => onRevertBook(user.id)}>{revertBookText}
+                                        </button>
                                     </div>
                                 </li>
                             </div>

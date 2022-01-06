@@ -1,4 +1,4 @@
-import BooksList from "../../components/books/booksList";
+import BooksList from "../../components/books-list/books-list";
 import {useState} from "react";
 import {del, get, getWithParams} from "../../utils/requests";
 import {sortBy} from "../../constants/constants";
@@ -15,13 +15,14 @@ export default function Show({books: serverBooks}) {
             .catch(({response}) => {
                 console.log("ОШИБКА УДАЛЕНИЯ", response)
             })
-
     }
 
     function onSearch(sortParam) {
         const params = {
             sortBy: sortBy[sortParam]
         }
+
+        console.log("!!")
 
         getWithParams('/search/books', params)
             .then(res => setBooks(res.data))
@@ -41,7 +42,7 @@ export default function Show({books: serverBooks}) {
 
     return (
         <Wrapper>
-            <BooksList books={books} onSearch={onSearch} onDeleteBook={deleteBook}/>
+            <BooksList books={books} onSearch={onSearch} onDeleteBook={deleteBook} className={"wrapper__books-list"}/>
         </Wrapper>
     )
 }

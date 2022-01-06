@@ -3,9 +3,10 @@ import {filterBy, filterParams, genres} from "../../constants/constants";
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import Header from "../header/header";
-import Wrapper from "../wrapper/wrapper";
+import Book from "../book/book";
+import BooksTable from "../books-table/books-table";
 
-export default function SelectBooks({genres: serverGenres, writers: serverWriters, onSearch, books}) {
+export default function SelectBooks({genres: serverGenres, writers: serverWriters, onSearch, books, className}) {
     const {title, text} = filterBy;
     const router = useRouter();
 
@@ -28,12 +29,12 @@ export default function SelectBooks({genres: serverGenres, writers: serverWriter
     }
 
     return (
-        <Wrapper>
+        <>
             <Header headerTitle={selectBooksHeader} />
-            <div className={"select-books"}>
-                <form onSubmit={searchResults}>
-                    <label htmlFor={title}>{text}</label><br/>
-                    <select value={filterParam} onChange={event => {
+            <div className={`${className} select-books`}>
+                <form className={"select-books__form form"} onSubmit={searchResults}>
+                    <label className={"form__label"} htmlFor={title}>{text}</label><br/>
+                    <select className={"form__select"} value={filterParam} onChange={event => {
                         setFilterParam(event.target.value)
                     }}>
                         {
@@ -45,7 +46,7 @@ export default function SelectBooks({genres: serverGenres, writers: serverWriter
 
                     {
                         <>
-                            <select disabled={!filterParam.length}
+                            <select className={"form__select"} disabled={!filterParam.length}
                                     value={filterParam === "genre" ? currentGenre : currentWriter}
                                     onChange={event => {
                                         filterParam === "genre" ?
@@ -63,21 +64,13 @@ export default function SelectBooks({genres: serverGenres, writers: serverWriter
                         </>
                     }
 
-                    <button type={"submit"}>{search}</button>
+                    <button className={"form__button"} type={"submit"}>{search}</button>
                 </form>
 
-                <div className={"select-books__result"}>
                     {books.length ?
-                        books.map(book => {
-                            return (
-                                <div key={book.id}>
-                                    <p>{book.title}</p>
-                                </div>
-                            )
-                        }) :
-                        <p>{noBooksFound}</p>}
-                </div>
+                        <BooksTable books={books} className={"select-books"}/> :
+                        <p className={"select-books__no-books"}>{noBooksFound}</p>}
             </div>
-        </Wrapper>
+        </>
     )
 }

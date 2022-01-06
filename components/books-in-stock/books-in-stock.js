@@ -1,26 +1,23 @@
-import {booksInStockHeader, chooseBookText} from "../../constants/copyright";
-import {useRouter} from "next/router";
+import {
+    booksInStockHeader,
+    chooseBookText,
+    noBooksFound,
+    noBooksInLibrary,
+    takeBookText
+} from "../../constants/copyright";
 import Header from "../header/header";
-import Wrapper from "../wrapper/wrapper";
+import BooksTable from "../books-table/books-table";
 
 export default function BooksInStock({booksInStock, onTakeBook}) {
-    const router = useRouter();
-
     return (
-        <Wrapper>
-            <Header headerTitle={booksInStockHeader} />
+        <>
+            <Header headerTitle={booksInStockHeader}/>
             <div className={"books-in-stock"}>
-                <ul className={"books-in-stock__list"}>
-                    {booksInStock.map(book => {
-                        return (
-                            <div key={book.id}>
-                                <li className={"books-in-stock__item"}>{`${book.title}, количество: ${book.count}`}</li>
-                                <button disabled={book.count === 0} onClick={() => onTakeBook(book.id)}>{chooseBookText}</button>
-                            </div>
-                        )
-                    })}
-                </ul>
+                {booksInStock.length ?
+                    <BooksTable books={booksInStock} bookAction={onTakeBook} className={"books-in-stock"} actionText={takeBookText}/> :
+                    <p className={"books-in-stock__no-books"}>{noBooksInLibrary}</p>
+                }
             </div>
-        </Wrapper>
+        </>
     )
 }

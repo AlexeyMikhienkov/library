@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {booksTitle, usersTitle} from "../../constants/copyright";
+import {addBookButtonText, addUserButtonText, booksTitle, usersTitle} from "../../constants/copyright";
 
 export default function MainPage({className}) {
     return (
@@ -9,6 +9,12 @@ export default function MainPage({className}) {
             </div>
             <div className={"main-page__link-container"}>
                 <Link href={'/books'}><a className={"main-page__link"}>{booksTitle}</a></Link>
+            </div>
+            <div className={"main-page__link-container"}>
+                <Link href={'/user/create'}><a className={"main-page__link"}>{addUserButtonText}</a></Link>
+            </div>
+            <div className={"main-page__link-container"}>
+                <Link href={'/book/create'}><a className={"main-page__link"}>{addBookButtonText}</a></Link>
             </div>
         </div>
     )

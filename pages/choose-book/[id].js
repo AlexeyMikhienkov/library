@@ -2,6 +2,7 @@ import SelectBooks from "../../components/select-books/select-books";
 import {useRouter} from "next/router";
 import {getWithParams, get} from "../../utils/requests";
 import {useState} from "react";
+import Wrapper from "../../components/wrapper/wrapper";
 
 export default function SearchBooks({genres, writers}) {
     const router = useRouter();
@@ -38,7 +39,9 @@ export default function SearchBooks({genres, writers}) {
     }
 
     return (
-        <SelectBooks genres={genres} writers={writers} onSearch={onSearch} books={books}/>
+        <Wrapper>
+            <SelectBooks genres={genres} writers={writers} onSearch={onSearch} books={books} className={"wrapper__select-books"}/>
+        </Wrapper>
     )
 }
 

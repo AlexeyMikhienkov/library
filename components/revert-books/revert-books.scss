@@ -1,0 +1,45 @@
+$table-back-color: #b2d4f7;
+$table-back-color-even: #6aa5e5;
+
+.revert-books {
+  font-family: Arial, serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+
+  &__no-books {
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .table {
+    width: 100%;
+
+    border: 2px solid #4b87c8;
+    border-spacing: 0;
+
+    &__row {
+      background-color: $table-back-color;
+
+      &_even {
+        background-color: $table-back-color-even;
+      }
+    }
+
+    &__cell {
+      text-align: center;
+      vertical-align: center;
+    }
+
+    &__button {
+      border: 2px solid #4b87c8;
+
+      background-color: #00fe8a;
+
+      &_overdue {
+        background-color: #e05858;
+      }
+    }
+  }
+}

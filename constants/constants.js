@@ -61,7 +61,7 @@ export const filterParams = {
 
 export const orderBy = {
     title: "orderBy",
-    text: "Упорядочить по"
+    text: "Упорядочить"
 }
 
 export const orderParams = {

@@ -3,7 +3,7 @@ import {addBookButtonText, addBookHeader} from "../../constants/copyright";
 import {genres, bookData} from "../../constants/constants";
 import Header from "../header/header";
 
-export default function CreateBook({onCreateQuery}) {
+export default function CreateBook({onCreateBook}) {
     const [writer, setWriter] = useState('');
     const [title, setTitle] = useState('');
     const [genre, setGenre] = useState('');
@@ -12,7 +12,7 @@ export default function CreateBook({onCreateQuery}) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        onCreateQuery(writer, title, genre, ageLimit, count);
+        onCreateBook(writer, title, genre, ageLimit, count);
     }
 
     function titleToStateConverter(propTitle) {

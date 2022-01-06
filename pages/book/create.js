@@ -4,7 +4,7 @@ import Wrapper from "../../components/wrapper/wrapper";
 
 export default function createBookPage() {
     //TODO: выводить исключение не в консоль
-    function createQuery(writer, title, genre, ageLimit, count) {
+    function createBook(writer, title, genre, ageLimit, count) {
         const data = {
             writer,
             title,
@@ -31,7 +31,7 @@ export default function createBookPage() {
 
     return (
         <Wrapper>
-            <CreateBook onCreateQuery={createQuery}/>
+            <CreateBook onCreateBook={createBook}/>
         </Wrapper>
     )
 }

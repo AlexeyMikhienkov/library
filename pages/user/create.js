@@ -5,7 +5,7 @@ import Wrapper from "../../components/wrapper/wrapper";
 export default function createUserPage() {
     //TODO: отобразить сообщение не в консоли
     //TODO: дату рождения вводить через react date picker
-    function createQuery(lastName, firstName, thirdName, birthday) {
+    function createUser(lastName, firstName, thirdName, birthday) {
         const data = {
             lastName,
             firstName,
@@ -31,7 +31,7 @@ export default function createUserPage() {
 
     return (
         <Wrapper>
-            <CreateUser onCreateQuery={createQuery}/>
+            <CreateUser onCreateUser={createUser}/>
         </Wrapper>
     )
 }

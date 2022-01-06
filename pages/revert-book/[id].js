@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
-import RevertBooksList from "../../components/revert-books-list/revert-books-list";
+import RevertBooks from "../../components/revert-books/revert-books";
 import {get, postWithParams} from "../../utils/requests";
+import Wrapper from "../../components/wrapper/wrapper";
 
 export default function RevertBook({allTakenBooks}) {
     const [userTakenBooks, setUserTakenBooks] = useState([]);
@@ -50,7 +51,10 @@ export default function RevertBook({allTakenBooks}) {
     }
 
     return (
-        <RevertBooksList userTakenBooks={userTakenBooks} onRevertBook={revertBook}/>
+        <Wrapper>
+            <RevertBooks userTakenBooks={userTakenBooks} onRevertBook={revertBook}
+                             className={"wrapper__revert-books"}/>
+        </Wrapper>
     )
 }
 

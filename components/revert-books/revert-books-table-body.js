@@ -1,7 +1,7 @@
-import {revert} from "../../constants/copyright";
+import {fineSum, revert} from "../../constants/copyright";
 import moment from 'moment';
 
-export default function RevertBooksTableBody({userTakenBooks, onRevertBook}) {
+export default function RevertBooksTableBody({userTakenBooks, onRevertBook, fine}) {
     return (
         <tbody>
         {
@@ -14,7 +14,8 @@ export default function RevertBooksTableBody({userTakenBooks, onRevertBook}) {
                 const isOverdue = Date.now() > new Date(formatRevertTime).getTime()
 
                 return (
-                    <tr key={index} className={`table__row ${!(index % 2) ? "table__row_even" : ""}`}>
+                    <>
+                    <tr className={`table__row ${!(index % 2) ? "table__row_even" : ""}`}>
                         <>
                             <td className={"table__cell"}>
                                 <p className={"table__item"}>{book.writer}</p>
@@ -39,6 +40,16 @@ export default function RevertBooksTableBody({userTakenBooks, onRevertBook}) {
                             }
                         </>
                     </tr>
+                    {
+                        isOverdue ?
+                            <tr className={'table__row table__row_overdue'}>
+                                <td className={"table__cell"} colSpan={5}>
+                                    <p className={"table__fine-text"}>{`${fineSum} ${fine}`}</p>
+                                </td>
+                            </tr>
+                            : null
+                    }
+                    </>
                 )
             })
         }

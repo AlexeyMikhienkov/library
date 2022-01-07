@@ -22,8 +22,6 @@ export default function Show({books: serverBooks}) {
             sortBy: sortBy[sortParam]
         }
 
-        console.log("!!")
-
         getWithParams('/search/books', params)
             .then(res => setBooks(res.data))
             .catch(({response}) => {

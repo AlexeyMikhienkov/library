@@ -6,7 +6,8 @@ import Wrapper from "../../components/wrapper/wrapper";
 
 export default function RevertBook({allTakenBooks}) {
     const [userTakenBooks, setUserTakenBooks] = useState([]);
-    const [takenBooks, setTakenBooks] = useState(allTakenBooks)
+    const [takenBooks, setTakenBooks] = useState(allTakenBooks);
+    const [fine, setFine] = useState(0);
 
     const router = useRouter();
 
@@ -28,13 +29,11 @@ export default function RevertBook({allTakenBooks}) {
         //TODO: обработать наличие штрафа в then
         postWithParams('/user/book-revert', params)
             .then(async (res) => {
-                const fine = res.data.fine;
-                console.log("ШТРАФ:", fine)
-
                 const response = await get('/search/taken-books')
                 const data = response.data;
 
                 setTakenBooks(data);
+                setFine(res.data.fine);
             })
             .catch(({response}) => {
                 console.log(response)
@@ -53,7 +52,7 @@ export default function RevertBook({allTakenBooks}) {
     return (
         <Wrapper>
             <RevertBooks userTakenBooks={userTakenBooks} onRevertBook={revertBook}
-                             className={"wrapper__revert-books"}/>
+                             className={"wrapper__revert-books"} fine={fine} />
         </Wrapper>
     )
 }

@@ -34,6 +34,8 @@ export const mainPageTitle = "ГЛАВНАЯ";
 export const userCreatedSuccessful = "Читатель успешно добавлен";
 export const bookCreatedSuccessful = "Книга успешно добавлена";
 
+export const fineSum = "Сумма штрафа:";
+
 export const booksTableHeader = [
     "Автор", "Название", "Количество сейчас"
 ]

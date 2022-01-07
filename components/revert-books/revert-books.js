@@ -6,7 +6,7 @@ import Header from "../header/header";
 import RevertBooksTableHead from "./revert-books-table-head";
 import RevertBooksTableBody from "./revert-books-table-body";
 
-export default function RevertBooks({userTakenBooks, onRevertBook, className}) {
+export default function RevertBooks({userTakenBooks, onRevertBook, className, fine}) {
     return (
         <>
             <Header headerTitle={revertBooksListHeader}/>
@@ -14,7 +14,7 @@ export default function RevertBooks({userTakenBooks, onRevertBook, className}) {
                 {userTakenBooks.length ?
                     <table className={`${className}__table table`}>
                         <RevertBooksTableHead/>
-                        <RevertBooksTableBody userTakenBooks={userTakenBooks} onRevertBook={onRevertBook}/>
+                        <RevertBooksTableBody userTakenBooks={userTakenBooks} onRevertBook={onRevertBook} fine={fine}/>
                     </table> :
                     <p className={"revert-books__no-books"}>{noTakenBooksFound}</p>
                 }

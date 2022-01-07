@@ -3,7 +3,7 @@ $table-back-color-even: #6aa5e5;
 
 .revert-books {
   font-family: Arial, serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: #000000;
 
@@ -24,6 +24,10 @@ $table-back-color-even: #6aa5e5;
 
       &_even {
         background-color: $table-back-color-even;
+      }
+
+      &_overdue {
+        background-color: #e68773;
       }
     }
 

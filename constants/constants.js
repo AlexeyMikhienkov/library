@@ -16,30 +16,30 @@ export const sortBy = {
 export const userFormFields = [
     {
         title: "lastName",
-        text: "Фамилия"
+        text: "Фамилия*"
     },
     {
         title: "firstName",
-        text: "Имя"
+        text: "Имя*"
     },
     {
         title: "thirdName",
-        text: "Отчество"
+        text: "Отчество*"
     },
     {
         title: "birthday",
-        text: "Дата рождения"
+        text: "Дата рождения*"
     }
 ]
 
 export const bookFormFields = [
     {
         title: "writer",
-        text: "Автор (ФИО)"
+        text: "Автор (ФИО)*"
     },
     {
         title: "title",
-        text: "Название"
+        text: "Название*"
     },
     {
         title: "genre",

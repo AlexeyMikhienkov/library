@@ -20,25 +20,38 @@ $text-color: #000000;
 
   .form {
 
-
-    &__input {
-      margin-top: 5px;
-      margin-bottom: 15px;
+    &__field {
+      margin-top: 15px;
     }
 
-    &__select {
+    &__error-message {
       margin-top: 5px;
-      margin-bottom: 15px;
+      margin-bottom: 5px;
+
+      font-weight: 700;
+      color: #f41015
     }
 
     &__button {
-      margin-bottom: 20px;
-
       border: 2px solid #4b87c8;
       background-color: #d6dea4;
 
       font-size: 16px;
     }
 
+    &__footer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      height: 50px;
+    }
+
+    &__success-message {
+      margin-left: 20px;
+
+      font-weight: 700;
+      color: #79b147
+    }
   }
 }

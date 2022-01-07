@@ -1,9 +1,9 @@
-import {addUserButtonText, addUserHeader, typeData} from "../../constants/copyright";
+import {addUserButtonText, addUserHeader, typeData, userCreatedSuccessful} from "../../constants/copyright";
 import {useState} from "react";
 import {userFormFields} from "../../constants/constants";
 import Header from "../header/header";
 
-export default function CreateUser({onCreateUser, className}) {
+export default function CreateUser({onCreateUser, className, errors, clicked}) {
     const [lastName, setLastName] = useState('');
     const [firstName, setFirstName] = useState('');
     const [thirdName, setThirdName] = useState('');
@@ -53,8 +53,13 @@ export default function CreateUser({onCreateUser, className}) {
                     {userFormFields.map(fieldObj => {
                         const {title, text} = fieldObj;
 
+                        let errorObj;
+
+                        if (Object.keys(errors).length)
+                            errorObj = errors?.find(error => error.field === title)
+
                         return (
-                            <div key={title}>
+                            <div className={"form__field"} key={title}>
                                 <label className={"form__label"} htmlFor={title}>{text}</label><br/>
                                 <input className={"form__input"} type={"text"} id={title}
                                        value={titleToStateConverter(title)}
@@ -63,11 +68,18 @@ export default function CreateUser({onCreateUser, className}) {
                                            if (typeof func === "function")
                                                func(event.target.value);
                                        }}/><br/>
+                                <p className={"form__error-message"}>{errorObj?.message}</p>
                             </div>
                         )
                     })}
 
-                    <button className={"form__button"} type={"submit"}>{addUserButtonText}</button>
+                    <div className={"form__footer"}>
+                        <button className={"form__button"} type={"submit"}>{addUserButtonText}</button>
+                        {
+                            !Object.keys(errors).length && clicked ?
+                                <p className={"form__success-message"}>{userCreatedSuccessful}</p> : null
+                        }
+                    </div>
                 </form>
             </div>
         </>

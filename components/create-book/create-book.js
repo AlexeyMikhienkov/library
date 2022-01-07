@@ -1,12 +1,17 @@
 import {useState} from "react";
-import {addBookButtonText, addBookHeader, typeData} from "../../constants/copyright";
+import {
+    addBookButtonText,
+    addBookHeader,
+    bookCreatedSuccessful,
+    typeData
+} from "../../constants/copyright";
 import {bookFormFields, genres} from "../../constants/constants";
 import Header from "../header/header";
 
-export default function CreateBook({onCreateBook, className}) {
+export default function CreateBook({onCreateBook, className, errors, clicked}) {
     const [writer, setWriter] = useState('');
     const [title, setTitle] = useState('');
-    const [genre, setGenre] = useState('');
+    const [genre, setGenre] = useState(Object.keys(genres)[0]);
     const [ageLimit, setAgeLimit] = useState('');
     const [count, setCount] = useState('');
 
@@ -58,38 +63,47 @@ export default function CreateBook({onCreateBook, className}) {
                     {bookFormFields.map(fieldObj => {
                         const {title, text} = fieldObj;
 
-                        if (title === "genre")
-                            return (
-                                <div key={title}>
-                                    <label className={"form__label"} htmlFor={title}>{text}</label><br/>
-                                    <select className={"form__select"} value={titleToStateConverter(title)}
-                                            onChange={event => {
-                                                const func = titleToSetterConverter(title);
-                                                if (typeof func === "function")
-                                                    func(event.target.value)
-                                            }}>
-                                        {
-                                            Object.entries(genres).map(([key, value]) => {
-                                                return <option key={key} value={key}>{value}</option>
-                                            })
-                                        }
-                                    </select><br/>
-                                </div>
-                            )
+                        let errorObj;
+
+                        if (Object.keys(errors).length)
+                            errorObj = errors?.find(error => error.field === title)
 
                         return (
-                            <div key={title}>
+                            <div className={"form__field"} key={title}>
                                 <label className={"form__label"} htmlFor={title}>{text}</label><br/>
-                                <input className={"form__input"} type={"text"} id={title}
-                                       value={titleToStateConverter(title)}
-                                       onChange={event => {
-                                           titleToSetterConverter(title)(event.target.value)
-                                       }}/><br/>
+                                {
+                                    title === "genre" ?
+                                        <select className={"form__select"} value={titleToStateConverter(title)}
+                                                onChange={event => {
+                                                    const func = titleToSetterConverter(title);
+                                                    if (typeof func === "function")
+                                                        func(event.target.value)
+                                                }}>
+                                            {
+                                                Object.entries(genres).map(([key, value]) => {
+                                                    return <option key={key} value={key}>{value}</option>
+                                                })
+                                            }
+                                        </select> :
+                                        <input className={"form__input"} type={"text"} id={title}
+                                               value={titleToStateConverter(title)}
+                                               onChange={event => {
+                                                   titleToSetterConverter(title)(event.target.value)
+                                               }}/>
+                                }
+                                <br/>
+                                <p className={"form__error-message"}>{errorObj?.message}</p>
                             </div>
                         )
                     })}
 
-                    <button className={"form__button"} type={"submit"}>{addBookButtonText}</button>
+                    <div className={"form__footer"}>
+                        <button className={"form__button"} type={"submit"}>{addBookButtonText}</button>
+                        {
+                            !Object.keys(errors).length && clicked ?
+                                <p className={"form__success-message"}>{bookCreatedSuccessful}</p> : null
+                        }
+                    </div>
                 </form>
             </div>
         </>

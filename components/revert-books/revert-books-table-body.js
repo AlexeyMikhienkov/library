@@ -56,20 +56,3 @@ export default function RevertBooksTableBody({userTakenBooks, onRevertBook, fine
         </tbody>
     )
 }
-
-{/*                <ul className={"revert-books-list__list"}>
-                    {userTakenBooks.length ?
-                        userTakenBooks.map(taken => {
-                            const {book} = taken;
-
-                            return (
-                                <div key={book.bookUpTime}>
-                                    <li className={"revert-books-list__item"}>{book.title}</li>
-                                    <button onClick={() => onRevertBook(book.id)}>{revert}</button>
-                                </div>
-                            )
-                        }) :
-                        <p>{noTakenBooksFound}</p>
-                    }
-                </ul>*/
-}

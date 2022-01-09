@@ -26,7 +26,6 @@ export default function RevertBook({allTakenBooks}) {
             bookId
         }
 
-        //TODO: обработать наличие штрафа в then
         postWithParams('/user/book-revert', params)
             .then(async (res) => {
                 const response = await get('/search/taken-books')

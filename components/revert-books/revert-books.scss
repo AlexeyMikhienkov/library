@@ -13,6 +13,16 @@ $table-back-color-even: #6aa5e5;
     text-align: center;
   }
 
+  &__overdue-container {
+    width: 50%;
+    text-align: center;
+  }
+
+  &__overdue-text {
+    font-weight: 600;
+    color: #e05858;
+  }
+
   .table {
     width: 100%;
 
@@ -24,10 +34,6 @@ $table-back-color-even: #6aa5e5;
 
       &_even {
         background-color: $table-back-color-even;
-      }
-
-      &_overdue {
-        background-color: #e68773;
       }
     }
 

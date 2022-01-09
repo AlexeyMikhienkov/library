@@ -1,4 +1,5 @@
 import {
+    fineSum,
     noTakenBooksFound,
     revertBooksListHeader,
 } from "../../constants/copyright";
@@ -18,6 +19,15 @@ export default function RevertBooks({userTakenBooks, onRevertBook, className, fi
                     </table> :
                     <p className={"revert-books__no-books"}>{noTakenBooksFound}</p>
                 }
+
+                {
+                    fine > 0 ?
+                        <div className={'revert-books__overdue-container'}>
+                            <p className={"revert-books__overdue-text"}>{`${fineSum} ${fine}`}</p>
+                        </div>
+                        : null
+                }
+
             </div>
         </>
     )
